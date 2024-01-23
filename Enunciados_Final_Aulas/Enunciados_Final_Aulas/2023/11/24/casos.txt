@@ -1,0 +1,40 @@
+Caso: 1
+	Horas......: 40
+	Valor Hora.: 10.00
+
+
+Caso: 2
+	Horas......: 160
+	Valor Hora.: 4.50
+
+
+Caso: 3
+	Horas......: 160
+	Valor Hora.: 5.30
+
+
+Caso: 4
+	Horas......: 152
+	Valor Hora.: 5.88
+
+
+Caso: 5
+	Horas......: 180
+	Valor Hora.: 6.59
+
+
+Caso: 6
+	Horas......: 240
+	Valor Hora.: 12.34
+
+
+Caso: 7
+	Horas......: 200
+	Valor Hora.: 21.25
+
+
+Caso: 8
+	Horas......: 220
+	Valor Hora.: 125.24
+
+

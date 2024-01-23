@@ -1,0 +1,2 @@
+def QuantidadeCarrosPorMarcaTodos(lista):
+	pass

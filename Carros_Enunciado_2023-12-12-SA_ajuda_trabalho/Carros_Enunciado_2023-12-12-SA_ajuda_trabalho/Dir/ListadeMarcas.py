@@ -1,0 +1,2 @@
+def ListadeMarcas(lista):
+	pass

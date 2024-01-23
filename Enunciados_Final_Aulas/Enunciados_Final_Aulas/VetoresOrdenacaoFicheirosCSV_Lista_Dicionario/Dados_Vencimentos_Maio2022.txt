@@ -1,0 +1,16 @@
+Número;Nome;Venc.Base;N.Vendas
+1;Bruno Isabel Mendes Belo;1418.97;20
+2;Guilherme Miguel Pontes de Melo;1226.86;43
+3;Henrique Nogueira Pereira;1344.39;44
+4;Inês José Alves Gonzaga;1125.77;16
+5;João Saraiva de Castro;2420.23;48
+6;Lígia Filipe da Silva Matos;1231.19;10
+7;João Alexandra Gomes Araújo;925.66;36
+8;Miguel Paulo de Assunção Silva;1300.74;49
+9;João Ângelo Dias Augusto;1512.42;3
+10;Julien Pedro Gonçalves Rodrigues;1871.36;10
+11;Patrick Alexandre Pereira Batista;2334.88;2
+12;Pedro José Tomé Monteiro;1463.08;11
+13;Rodrigo Miguel Guerra Paraíso;962.69;18
+14;Sandra Augusto Soares Ferreira;1922.44;49
+15;Ana Marisa Fonseca Couto;1884.95;10

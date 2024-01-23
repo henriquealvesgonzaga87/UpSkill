@@ -1,0 +1,17 @@
+Número  Nome                                          Venc.Base     N.Vendas     Comissão   V.Ilíquido      Desc.SS     Desc.IRS  T.Descontos      Receber
+   1    Bruno Isabel Mendes Belo                        1418.97           20       300.00      1718.97       298.00        85.95       383.95      1335.02
+   2    Guilherme Miguel Pontes de Melo                 1226.86           43       645.00      1871.86       258.00        93.59       351.59      1520.27
+   3    Henrique Nogueira Pereira                       1344.39           44       660.00      2004.39       282.00       100.22       382.22      1622.17
+   4    Inês José Alves Gonzaga                         1125.77           16       240.00      1365.77       236.00        68.29       304.29      1061.48
+   5    João Saraiva de Castro                          2420.23           48       720.00      3140.23       508.00       157.01       665.01      2475.22
+   6    Lígia Filipe da Silva Matos                     1231.19           10       140.00      1371.19       259.00        68.56       327.56      1043.63
+   7    João Alexandra Gomes Araújo                      925.66           36       540.00      1465.66       194.00        73.28       267.28      1198.38
+   8    Miguel Paulo de Assunção Silva                  1300.74           49       735.00      2035.74       273.00       101.79       374.79      1660.95
+   9    João Ângelo Dias Augusto                        1512.42            3        42.00      1554.42       318.00        77.72       395.72      1158.70
+  10    Julien Pedro Gonçalves Rodrigues                1871.36           10       140.00      2011.36       393.00       100.57       493.57      1517.79
+  11    Patrick Alexandre Pereira Batista               2334.88            2        28.00      2362.88       490.00       118.14       608.14      1754.74
+  12    Pedro José Tomé Monteiro                        1463.08           11       154.00      1617.08       307.00        80.85       387.85      1229.23
+  13    Rodrigo Miguel Guerra Paraíso                    962.69           18       270.00      1232.69       202.00        61.63       263.63       969.06
+  14    Sandra Augusto Soares Ferreira                  1922.44           49       735.00      2657.44       404.00       132.87       536.87      2120.57
+  15    Ana Marisa Fonseca Couto                        1884.95           10       140.00      2024.95       396.00       101.25       497.25      1527.70
+                                                                         369      5489.00     28434.63      4818.00      1421.72      6239.72     22194.91

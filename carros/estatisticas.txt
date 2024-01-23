@@ -1,0 +1,41 @@
+Quantidade de carros: 10000
+
+Ano com mais carros: Ano: 2007 - quantidade: 523
+
+Quantidade de carros por marca e modelo: ('Renault', 786), ('Mitsubishi', 454), ('Citroen', 1320), ('Audi', 2069), ('Porche', 574), ('Peugeot', 542), ('Opel', 538), ('Seat', 817), ('Fiat', 791), ('BMW', 1322), ('Toyota', 270), ('Ferrari', 261), ('Bentley', 256)], [('Espace', 259), ('Colt', 235), ('C4', 253), ('C2', 289), ('TT', 262), ('A8', 264), ('Cheyenne', 292), ('305', 273), ('Corsa', 257), ('A2', 241), ('Kadet', 281), ('A6', 272), ('Ibiza', 292), ('A1', 271), ('Marbella', 265), ('A5', 261), ('Panda', 264), ('A3', 246), ('600', 269), ('Kangoo', 265), ('X3', 262), ('Megane', 262), ('530', 300), ('Lancer', 219), ('320', 252), ('Carrera', 282), ('Punto', 258), ('Avensis', 270), ('Cordoba', 260), ('205', 269), ('C1', 266), ('C5', 260), ('Testarrosa', 261), ('A4', 252), ('520', 276), ('X6', 232), ('C3', 252), ('Continental', 256)
+
+Anos das matrículas dos carros: ['2010', '2009', '2008', '2007', '2006', '2005', '2004', '2003', '2002', '2001', '2000', '1999', '1998', '1997', '1996', '1995', '1994', '1993', '1992', '1991', '1990']
+
+Matrículas começadas por 88 (10ªs): ['88-KV-48', 'Mitsubishi', 'Lancer', '2000', '5906074', '73'], ['88-NE-57', 'Renault', 'Espace', '2002', '8164861', '103'], ['88-VK-55', 'Peugeot', '205', '2005', '11932088', '187'], ['88-AD-09', 'Seat', 'Cordoba', '1992', '6249536', '477'], ['88-RI-36', 'Fiat', 'Punto', '2008', '8900725', '483'], ['88-ED-28', 'Audi', 'A2', '2000', '5573626', '551'], ['88-JJ-18', 'Fiat', '600', '2006', '12948841', '563'], ['88-EQ-82', 'Renault', 'Espace', '1999', '5239249', '653'], ['88-TL-92', 'Opel', 'Corsa', '1991', '8789801', '761'], ['88-MG-81', 'Opel', 'Kadet', '1997', '7315561', '764']
+
+Matrículas que contém FG (10ªs):[['88-KV-48', 'Mitsubishi', 'Lancer', '2000', '5906074', '73'], ['88-NE-57', 'Renault', 'Espace', '2002', '8164861', '103'], ['88-VK-55', 'Peugeot', '205', '2005', '11932088', '187'], ['88-AD-09', 'Seat', 'Cordoba', '1992', '6249536', '477'], ['88-RI-36', 'Fiat', 'Punto', '2008', '8900725', '483'], ['88-ED-28', 'Audi', 'A2', '2000', '5573626', '551'], ['88-JJ-18', 'Fiat', '600', '2006', '12948841', '563'], ['88-EQ-82', 'Renault', 'Espace', '1999', '5239249', '653'], ['88-TL-92', 'Opel', 'Corsa', '1991', '8789801', '761'], ['88-MG-81', 'Opel', 'Kadet', '1997', '7315561', '764']]
+[['65-FG-41', 'Opel', 'Corsa', '2007', '4562034', '210'], ['27-FG-26', 'Citroen', 'C4', '2010', '2961974', '391'], ['59-FG-26', 'Audi', 'A4', '1990', '13418698', '618'], ['57-FG-55', 'Fiat', '600', '1999', '7539001', '1773'], ['89-FG-00', 'Opel', 'Kadet', '1990', '12616189', '3119'], ['48-FG-06', 'BMW', '320', '1995', '4768401', '3875'], ['98-FG-69', 'Audi', 'A5', '2008', '6272518', '5273'], ['81-FG-02', 'Porche', 'Carrera', '2001', '3552465', '5521'], ['41-FG-53', 'Ferrari', 'Testarrosa', '2001', '3320430', '5656'], ['48-FG-84', 'Seat', 'Ibiza', '2009', '9536886', '6646']]
+
+Matrículas terminadas por 85 (10ªs): [['80-TM-85', 'Mitsubishi', 'Colt', '2006', '11750312', '33'], ['94-LI-85', 'Audi', 'A8', '2006', '6514918', '49'], ['87-DB-85', 'Audi', 'A2', '1999', '1789360', '96'], ['74-ES-85', 'Seat', 'Marbella', '1990', '6644496', '116'], ['24-SM-85', 'Citroen', 'C5', '1999', '9733248', '130'], ['84-JM-85', 'Peugeot', '205', '1997', '14124976', '278'], ['01-OU-85', 'Fiat', 'Panda', '2003', '11759590', '284'], ['85-RL-85', 'Citroen', 'C5', '2002', '12464572', '378'], ['09-NP-85', 'Bentley', 'Continental', '1990', '5989180', '613'], ['52-NF-85', 'Audi', 'A1', '2005', '14766748', '669']]
+
+Quantidade de carros por Marca: [[2069, 'Audi'], [1322, 'BMW'], [1320, 'Citroen'], [817, 'Seat'], [791, 'Fiat'], [786, 'Renault'], [574, 'Porche'], [542, 'Peugeot'], [538, 'Opel'], [454, 'Mitsubishi'], [270, 'Toyota'], [261, 'Ferrari'], [256, 'Bentley']]
+
+Lista das Marcas: ['Renault', 'Mitsubishi', 'Citroen', 'Audi', 'Porche', 'Peugeot', 'Opel', 'Seat', 'Fiat', 'BMW', 'Toyota', 'Ferrari', 'Bentley']
+Lista dos modelos: ['Espace', 'Colt', 'C4', 'C2', 'TT', 'A8', 'Cheyenne', '305', 'Corsa', 'A2', 'Kadet', 'A6', 'Ibiza', 'A1', 'Marbella', 'A5', 'Panda', 'A3', '600', 'Kangoo', 'X3', 'Megane', '530', 'Lancer', '320', 'Carrera', 'Punto', 'Avensis', 'Cordoba', '205', 'C1', 'C5', 'Testarrosa', 'A4', '520', 'X6', 'C3', 'Continental']
+
+Marca c/ mais carros: Audi; quantidade: 2069
+
+Marca c/ menos carros: Bentley; quantidade: 256
+
+Modelo c/ mais carros: 530; quantidade: 300
+
+ano a verificar: 2007; quantidade: 523
+
+Marca a verificar: BMW; quantidade: 1322
+
+Modelo a verificar: corsa; quantidade: 257
+
+Quantidade de carros por marca de modo ordenado: [['Audi', 2069], ['BMW', 1322], ['Bentley', 256], ['Citroen', 1320], ['Ferrari', 261], ['Fiat', 791], ['Mitsubishi', 454], ['Opel', 538], ['Peugeot', 542], ['Porche', 574], ['Renault', 786], ['Seat', 817], ['Toyota', 270]]
+
+Carros por utente (10ºs): [('9999809', 2), ('9999005', 4), ('9995007', 2), ('9994767', 2), ('9993306', 1), ('9991747', 1), ('9990674', 2), ('9989046', 5), ('9985179', 2), ('9982442', 1)]
+
+Lista de carros por ano: [['2010', 488], ['2009', 473], ['2008', 419], ['2007', 523], ['2006', 468], ['2005', 494], ['2004', 473], ['2003', 479], ['2002', 443], ['2001', 499], ['2000', 483], ['1999', 506], ['1998', 450], ['1997', 464], ['1996', 481], ['1995', 494], ['1994', 459], ['1993', 482], ['1992', 457], ['1991', 489], ['1990', 476]]
+
+Lista ordenada por modelo: [[30, '205'], [8, '305'], [25, '320'], [35, '520'], [23, '530'], [19, '600'], [14, 'A1'], [10, 'A2'], [18, 'A3'], [34, 'A4'], [16, 'A5'], [12, 'A6'], [6, 'A8'], [28, 'Avensis'], [31, 'C1'], [4, 'C2'], [37, 'C3'], [3, 'C4'], [32, 'C5'], [26, 'Carrera'], [7, 'Cheyenne'], [2, 'Colt'], [38, 'Continental'], [29, 'Cordoba'], [9, 'Corsa'], [1, 'Espace'], [13, 'Ibiza'], [11, 'Kadet'], [20, 'Kangoo'], [24, 'Lancer'], [15, 'Marbella'], [22, 'Megane'], [17, 'Panda'], [27, 'Punto'], [5, 'TT'], [33, 'Testarrosa'], [21, 'X3'], [36, 'X6']]
+
+ 

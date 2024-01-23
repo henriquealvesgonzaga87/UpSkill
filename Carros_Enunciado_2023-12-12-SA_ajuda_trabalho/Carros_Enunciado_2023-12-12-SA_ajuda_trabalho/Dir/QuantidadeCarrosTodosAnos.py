@@ -1,0 +1,2 @@
+def QuantidadeCarrosTodosAnos(carros):
+	pass
