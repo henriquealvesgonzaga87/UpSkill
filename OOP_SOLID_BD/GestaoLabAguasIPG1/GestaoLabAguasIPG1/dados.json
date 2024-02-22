@@ -1,0 +1,197 @@
+{
+    "TipoClientes": [
+        {
+            "Código": "1",
+            "Nome": "1"
+        },
+        {
+            "Código": "2",
+            "Nome": "Particular"
+        },
+        {
+            "Código": "3",
+            "Nome": "Municipios"
+        },
+        {
+            "Código": "4",
+            "Nome": "Juntas de Freguesia"
+        },
+        {
+            "Código": "5",
+            "Nome": "Restauração"
+        },
+        {
+            "Código": "6",
+            "Nome": "Saúde"
+        },
+        {
+            "Código": "7",
+            "Nome": "Alojamentos"
+        },
+        {
+            "Código": "8",
+            "Nome": "Colectividades"
+        },
+        {
+            "Código": "9",
+            "Nome": "Serviços"
+        },
+        {
+            "Código": "10",
+            "Nome": "Comércio"
+        },
+        {
+            "Código": "11",
+            "Nome": "Ensino"
+        }
+    ],
+    "Clientes": [
+        {
+            "IDCliente": 2,
+            "IDTipoCliente": 1,
+            "Nome": "Costa Silva",
+            "Email": "d@gmail.com",
+            "Telefone": "212345678",
+            "Telemovel": "912345678",
+            "Morada": "Cave Dos Pais, 1º, DTO",
+            "CodigoPostal": "6300-500",
+            "Localidade": "Guarda"
+        },
+        {
+            "IDCliente": 3,
+            "IDTipoCliente": 2,
+            "Nome": "Savio ambrosio",
+            "Email": "savio@gmail.com",
+            "Telefone": "212345678",
+            "Telemovel": "933454567",
+            "Morada": "Afonso Costa",
+            "CodigoPostal": "6300-551",
+            "Localidade": "Guarda"
+        },
+        {
+            "IDCliente": 4,
+            "IDTipoCliente": 3,
+            "Nome": "Flavia Costa",
+            "Email": "flavia@gmail.com",
+            "Telefone": "212345678",
+            "Telemovel": "9876524436",
+            "Morada": "Avenida",
+            "CodigoPostal": "6300-501",
+            "Localidade": "Guarda"
+        },
+        {
+            "IDCliente": 5,
+            "IDTipoCliente": 4,
+            "Nome": "Vicente Costa",
+            "Email": "vicente@gmail.com",
+            "Telefone": "212345678",
+            "Telemovel": "9878276542",
+            "Morada": "Politecnico",
+            "CodigoPostal": "6300-507",
+            "Localidade": "Guarda"
+        },
+        {
+            "IDCliente": 6,
+            "IDTipoCliente": 5,
+            "Nome": "Paulo Jorge Costa",
+            "Email": "vicente@gmail.com",
+            "Telefone": "212345678",
+            "Telemovel": "9878276542",
+            "Morada": "Politecnico",
+            "CodigoPostal": "6300-507",
+            "Localidade": "Guarda"
+        },
+        {
+            "IDCliente": 7,
+            "IDTipoCliente": 4,
+            "Nome": "Vicente Costa",
+            "Email": "vicente1@gmail.com",
+            "Telefone": "212345678",
+            "Telemovel": "9278276542",
+            "Morada": "Politecnico",
+            "CodigoPostal": "6300-507",
+            "Localidade": "Guarda"
+        },
+        {
+            "IDCliente": 123,
+            "IDTipoCliente": 12,
+            "Nome": "Ad",
+            "Email": "ad@dad.c",
+            "Telefone": "266370209",
+            "Telemovel": "918892104",
+            "Morada": "Viela",
+            "CodigoPostal": "3850-118",
+            "Localidade": "Guarda"
+        }
+    ],
+    "TipoAnalises": [
+        {
+            "Código": 1,
+            "Nome": "Consumo",
+            "Preço": 10.0,
+            "Parametros": [
+                {
+                    "Parâmetro": "Teste",
+                    "Valor": 10.0,
+                    "Unidade": "",
+                    "Simbolo": "",
+                    "Obs": ""
+                }
+            ]
+        }
+    ],
+    "Departamentos": [
+        {
+            "Código": "1",
+            "Nome": "Informática"
+        },
+        {
+            "Código": "2",
+            "Nome": "Gestão"
+        }
+    ],
+    "Funcionários": [
+        {
+            "IDFuncionário": 2,
+            "IDDepartamento": 2,
+            "Nome": "José Quitério",
+            "Email": "d@gmail.com",
+            "Telemovel": "XX2345678"
+        }
+    ],
+    "Pedidos": [
+        {
+            "Código": 1,
+            "CódigoCliente": 2,
+            "IDTipoCliente": 1,
+            "CódigoTipoAnalise": 1,
+            "Data": "2024-10-12",
+            "DataPrevistaResultados": "2024-10-14",
+            "Parâmetros": [
+                {
+                    "Parâmetro": "Teste",
+                    "Valor": 10.0,
+                    "Unidade": "",
+                    "Simbolo": "",
+                    "Obs": ""
+                }
+            ]
+        }
+    ],
+    "Resultados": [
+        {
+            "Código": 1,
+            "Data": "2024-10-12",
+            "CódigoCliente": 2,
+            "CódigoTipoAnalise": 1,
+            "Parametros": [
+                {
+                    "Parâmetro": "Teste",
+                    "Valor": 10,
+                    "ValorMax": 10.0
+                }
+            ],
+            "Resultado": "Negativo"
+        }
+    ]
+}
