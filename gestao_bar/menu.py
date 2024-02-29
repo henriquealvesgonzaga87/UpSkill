@@ -27,7 +27,7 @@ def menu_principal():
         elif opcao_menu == 3:
             menu_vendas()
         else:
-            raise Exception("Opção invalida")
+            print("Opção invalida")
 
 
 def menu_cliente():
@@ -39,27 +39,31 @@ def menu_cliente():
 5 - filtra por NIF
 6 - atualizar cliente
 7 - deletar cliente
-0 - retornar ao menu principal""")
-        opcao = int(input(": "))
-        if opcao == 0:
+0 - retornar ao menu principal
+e - para sair do programa""")
+        opcao = input(": ").lower().strip()
+        if opcao == 'e':
+            print("até breve")
+            exit()
+        if int(opcao) == 0:
             menu_principal()
             break
-        elif opcao == 1:
+        elif int(opcao) == 1:
             cliente.adicionar()
-        elif opcao == 2:
+        elif int(opcao) == 2:
             cliente.lista_clientes()
-        elif opcao == 3:
+        elif int(opcao) == 3:
             cliente.filtra_por_nome()
-        elif opcao == 4:
+        elif int(opcao) == 4:
             cliente.filtra_por_sobrenome()
-        elif opcao == 5:
+        elif int(opcao) == 5:
             cliente.filtra_por_nif()
-        elif opcao == 6:
+        elif int(opcao) == 6:
             cliente.atualizar_cliente()
-        elif opcao == 7:
+        elif int(opcao) == 7:
             cliente.deletar_cliente()
         else:
-            raise Exception("Opção invalida")
+            print("Opção invalida")
 
 
 
@@ -68,19 +72,23 @@ def menu_produtos():
         print("""1 - menu tipos produtos
 2 - menu marcas
 3 - menu mercadoria
-0 - retornar ao menu principal""")
-        opcao = int(input(": "))
-        if opcao == 0:
+0 - retornar ao menu principal
+e - sair do programa""")
+        opcao = input(": ")
+        if opcao == 'e':
+            print("até breve")
+            exit()
+        if int(opcao) == 0:
             menu_principal()
             break
-        elif opcao == 1:
+        elif int(opcao) == 1:
             menu_tipo_produtos()
-        elif opcao == 2:
+        elif int(opcao) == 2:
             menu_marca()
-        elif opcao == 3:
+        elif int(opcao) == 3:
             menu_mercadoria()
         else:
-            raise Exception("Opção invalida")
+            print("Opção invalida")
 
 
 def menu_tipo_produtos():
@@ -91,26 +99,30 @@ def menu_tipo_produtos():
 4 - deletar tipo de produto por nome
 5 - deletar tipo de produto por id
 0 - retornar ao menu anterior
-99 - retornar ao menu principal""")
-        opcao = int(input(": "))
-        if opcao == 0:
+99 - retornar ao menu principal
+e - sair do programa""")
+        opcao = input(": ")
+        if opcao == 'e':
+            print("até breve")
+            exit()
+        if int(opcao) == 0:
             menu_produtos()
             break
-        if opcao == 99:
+        if int(opcao) == 99:
             menu_principal()
             break
-        elif opcao == 1:
+        elif int(opcao) == 1:
             tipo_produto.adicionar()
-        elif opcao == 2:
+        elif int(opcao) == 2:
             tipo_produto.listar_todos_tipos_produtos()
-        elif opcao == 3:
+        elif int(opcao) == 3:
             tipo_produto.atualizar_tipo_produto()
-        elif opcao == 4:
+        elif int(opcao) == 4:
             tipo_produto.deletar_por_nome()
-        elif opcao == 5:
+        elif int(opcao) == 5:
             tipo_produto.deletar_por_id()
         else:
-            raise Exception("Opção invalida")
+            print("Opção invalida")
 
 
 def menu_marca():
@@ -122,28 +134,32 @@ def menu_marca():
 5 - deletar marca por nome
 6 - deletar marca por ID
 0 - retornar ao menu anterior
-99 - retornar ao menu principal""")
-        opcao = int(input(": "))
-        if opcao == 0:
+99 - retornar ao menu principal
+e - sair do programa""")
+        opcao = input(": ")
+        if opcao == 'e':
+            print("até breve")
+            exit()
+        if int(opcao) == 0:
             menu_produtos()
             break
-        if opcao == 99:
+        if int(opcao) == 99:
             menu_principal()
             break
-        elif opcao == 1:
+        elif int(opcao) == 1:
             marca_produto.adicionar()
-        elif opcao == 2:
+        elif int(opcao) == 2:
             marca_produto.listar()
-        elif opcao == 3:
+        elif int(opcao) == 3:
             marca_produto.atualizar_por_nome()
-        elif opcao == 4:
+        elif int(opcao) == 4:
             marca_produto.atualizar_por_id()
-        elif opcao == 5:
+        elif int(opcao) == 5:
             marca_produto.deletar_por_nome()
-        elif opcao == 6:
+        elif int(opcao) == 6:
             marca_produto.deletar_por_id()
         else:
-            raise Exception("Opção invalida")
+            print("Opção invalida")
 
 
 def menu_mercadoria():
@@ -155,26 +171,32 @@ def menu_mercadoria():
 5 - atualizar produto
 6 - deletar produto
 0 - retornar ao menu anterior
-99 - retornar ao menu principal""")
-        opcao = int(input(": "))
-        if opcao == 0:
+99 - retornar ao menu principal
+e - sair do programa""")
+        opcao = input(": ")
+        if opcao == 'e':
+            print("até breve")
+            exit()
+        if int(opcao) == 0:
             menu_produtos()
             break
-        if opcao == 99:
+        if int(opcao) == 99:
             menu_principal()
             break
-        elif opcao == 1:
+        elif int(opcao) == 1:
             produto.adicionar()
-        elif opcao == 2:
+        elif int(opcao) == 2:
             produto.consultar_todos_produtos()
-        elif opcao == 3:
+        elif int(opcao) == 3:
             produto.consultar_por_nome()
-        elif opcao == 4:
+        elif int(opcao) == 4:
             produto.consultar_por_id()
-        elif opcao == 5:
+        elif int(opcao) == 5:
             produto.atualizar()
-        elif opcao == 6:
+        elif int(opcao) == 6:
             produto.deletar()
+        else:
+            print("Opção Inválida")
 
 
 def menu_vendas():
@@ -185,29 +207,36 @@ def menu_vendas():
 4 - pesquisar vendas por produtos
 5 - atualizar venda
 6 - deletar venda
+7 - emitir recibo
 0 - retornar ao menu anterior
-99 - retornar ao menu principal""")
-        opcao = int(input(": "))
-        if opcao == 0:
+99 - retornar ao menu principal
+e - sair do programa""")
+        opcao = input(": ")
+        if opcao == 'e':
+            print("até breve")
+            exit()
+        if int(opcao) == 0:
             menu_produtos()
             break
-        if opcao == 99:
+        if int(opcao) == 99:
             menu_principal()
             break
-        elif opcao == 1:
+        elif int(opcao) == 1:
             venda.adicionar()
-        elif opcao == 2:
+        elif int(opcao) == 2:
             venda.listar_todas_vendas()
-        elif opcao == 3:
+        elif int(opcao) == 3:
             venda.listar_venda_por_cliente()
-        elif opcao == 4:
+        elif int(opcao) == 4:
             venda.listar_venda_por_produto()
-        elif opcao == 5:
+        elif int(opcao) == 5:
             venda.atualizar_venda()
-        elif opcao == 6:
+        elif int(opcao) == 6:
             venda.deletar_venda()
+        elif int(opcao) == 7:
+            venda.recibo()
         else:
-            raise Exception("Opção inválida!")
+            print("Opção inválida!")
 
 
 menu_principal()
