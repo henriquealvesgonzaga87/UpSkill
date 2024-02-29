@@ -1,5 +1,4 @@
-from models.user import Cliente
-from models.produtos import TipoProduto, MarcaProduto, Produto
+from models.models import Cliente, TipoProduto, MarcaProduto, Produto, Venda
 # fazer um menu para realizar um CRUD chamando as funções do db
 # quais queries fazer além do CRUD?
 # listar vendas por cliente
@@ -8,6 +7,7 @@ cliente = Cliente()
 tipo_produto = TipoProduto()
 marca_produto = MarcaProduto()
 produto = Produto()
+venda = Venda()
 
 
 def menu_principal():
@@ -24,6 +24,8 @@ def menu_principal():
             menu_cliente()
         elif opcao_menu == 2:
             menu_produtos()
+        elif opcao_menu == 3:
+            menu_vendas()
         else:
             raise Exception("Opção invalida")
 
@@ -173,6 +175,39 @@ def menu_mercadoria():
             produto.atualizar()
         elif opcao == 6:
             produto.deletar()
+
+
+def menu_vendas():
+    while True:
+        print("""1 - adicionar venda
+2 - listar vendas
+3 - pesquisar vendas por cliente
+4 - pesquisar vendas por produtos
+5 - atualizar venda
+6 - deletar venda
+0 - retornar ao menu anterior
+99 - retornar ao menu principal""")
+        opcao = int(input(": "))
+        if opcao == 0:
+            menu_produtos()
+            break
+        if opcao == 99:
+            menu_principal()
+            break
+        elif opcao == 1:
+            venda.adicionar()
+        elif opcao == 2:
+            venda.listar_todas_vendas()
+        elif opcao == 3:
+            venda.listar_venda_por_cliente()
+        elif opcao == 4:
+            venda.listar_venda_por_produto()
+        elif opcao == 5:
+            venda.atualizar_venda()
+        elif opcao == 6:
+            venda.deletar_venda()
+        else:
+            raise Exception("Opção inválida!")
 
 
 menu_principal()

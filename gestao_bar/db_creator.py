@@ -1,6 +1,5 @@
 from main import engine
 from base import Model
-from models.user import *
-from models.produtos import *
+from models.models import *
 
 Model.metadata.create_all(engine)
