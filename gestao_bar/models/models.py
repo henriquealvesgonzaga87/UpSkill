@@ -3,7 +3,7 @@ from sqlalchemy import Column, Integer, String, ForeignKey, Date, Float
 from sqlalchemy.orm import Relationship
 from main import session
 from datetime import datetime
-import re
+from .regex_functions import regex_nome, regex_nif
 
 
 # criar tabela de clientes (id_cliente, primeiro_nome, sobrenome, nif)
@@ -22,28 +22,33 @@ class Cliente(TimeStampedModel):
 
     def adicionar(self):
         try:
-            nome = input("Primeiro nome: ").capitalize().strip()
-            while 0 <= len(nome) < 2:
-                print("O nome deve conter pelo menos dois digitos")
-                nome = input("Primeiro nome: ").capitalize().strip()
-            ultimo_nome = input("Sobrenome: ").capitalize().strip()
-            while 0 <= len(ultimo_nome) < 2:
-                print("O sobrenome deve conter pelo menos dois digitos")
-                ultimo_nome = input("Sobrenome: ").capitalize().strip()
+            nome = input("Primeiro nome: ").title().strip()
+            verifica_nome = regex_nome(nome)
+            while verifica_nome == False:
+                print("Nome inválido. Deve conter pelo menos duas letras")
+                nome = input("Primeiro nome: ").title().strip()
+                verifica_nome = regex_nome(nome)
+            ultimo_nome = input("Sobrenome: ").title().strip()
+            verifica_sobrenome = regex_nome(ultimo_nome)
+            while verifica_sobrenome == False:
+                print("Sobrenome inválido. Deve conter pelo menos duas letras")
+                ultimo_nome = input("Sobrenome: ").title().strip()
+                verifica_nome = regex_nome(ultimo_nome)
             NUMERO_FISCAL = int(input("NIF: "))
-            regex_nif = r"^([1-2]|5|6|8|9)\d{8}$"
-            if re.match(regex_nif, str(NUMERO_FISCAL)):
-                cliente = Cliente(
-                    primeiro_nome=nome,
-                    sobrenome=ultimo_nome,
-                    NIF=NUMERO_FISCAL
+            verifica_nif = regex_nif(NUMERO_FISCAL)
+            while verifica_nif == False:
+                print("NIF Inválido, o NIF deve conter 9 digitos")
+                NUMERO_FISCAL = int(input("NIF: "))
+                verifica_nif = regex_nif(NUMERO_FISCAL)
+            cliente = Cliente(
+                primeiro_nome=nome,
+                sobrenome=ultimo_nome,
+                NIF=NUMERO_FISCAL
 
-                )
-                session.add(cliente)
-                session.commit()
-                return cliente
-            else:
-                raise ValueError("O NIF deve conter 9 digitos")
+            )
+            session.add(cliente)
+            session.commit()
+            return cliente
         except Exception as e:
             print("Algo deu errado")
             print(e)
@@ -53,9 +58,9 @@ class Cliente(TimeStampedModel):
 
     def filtra_por_nome(self):
         try:
-            nome = input("Informe o nome: ").capitalize().strip()
+            nome = input("Informe o nome: ").title().strip()
             cliente = Cliente.query.filter_by(primeiro_nome=nome).all()
-            if cliente is not None:
+            if len(cliente) != 0:
                 print(cliente)
             else:
                 print("Cliente não encontrado!")
@@ -70,9 +75,9 @@ class Cliente(TimeStampedModel):
 
     def filtra_por_sobrenome(self):
         try:
-            sobrenome = input("Informe o sobrenome: ").capitalize().strip()
+            sobrenome = input("Informe o sobrenome: ").title().strip()
             cliente = Cliente.query.filter_by(sobrenome=sobrenome).all()
-            if cliente is not None:
+            if len(cliente) != 0:
                 print(cliente)
             else:
                 print("Cliente não encontrado!")
@@ -106,18 +111,29 @@ class Cliente(TimeStampedModel):
         try:
             nif = int(input("Informe o NIF do cliente a ser atualizado: "))
             cliente_a_ser_atualizado = Cliente.query.filter_by(NIF=nif).first()
-            if nif == None:
+            if cliente_a_ser_atualizado == None:
                 raise ValueError("NIF não encontrado!")
-            nome = input("Primeiro nome: ").capitalize().strip()
-            while 0 <= len(nome) < 2:
-                print("O nome deve conter pelo menos dois digitos")
-                nome = input("Primeiro nome: ").capitalize().strip()
-            ultimo_nome = input("Sobrenome: ").capitalize().strip()
-            while 0 <= len(ultimo_nome) < 2:
-                print("O sobrenome deve conter pelo menos dois digitos")
-                ultimo_nome = input("Sobrenome: ").capitalize().strip()
+            nome = input("Primeiro nome: ").title().strip()
+            verifica_nome = regex_nome(nome)
+            while verifica_nome == False:
+                print("Nome inválido. Deve conter pelo menos duas letras")
+                nome = input("Primeiro nome: ").title().strip()
+                verifica_nome = regex_nome(nome)
+            ultimo_nome = input("Sobrenome: ").title().strip()
+            verifica_sobrenome = regex_nome(ultimo_nome)
+            while verifica_sobrenome == False:
+                print("Sobrenome inválido. Deve conter pelo menos duas letras")
+                ultimo_nome = input("Sobrenome: ").title().strip()
+                verifica_nome = regex_nome(ultimo_nome)
+            NUMERO_FISCAL = int(input("NIF: "))
+            verifica_nif = regex_nif(NUMERO_FISCAL)
+            while verifica_nif == False:
+                print("NIF Inválido, o NIF deve conter 9 digitos")
+                NUMERO_FISCAL = int(input("NIF: "))
+                verifica_nif = regex_nif(NUMERO_FISCAL)
             cliente_a_ser_atualizado.primeiro_nome = nome
             cliente_a_ser_atualizado.sobrenome = ultimo_nome
+            cliente_a_ser_atualizado.NIF = NUMERO_FISCAL
             session.commit()
             return cliente_a_ser_atualizado
         except ValueError:
@@ -132,9 +148,9 @@ class Cliente(TimeStampedModel):
     def deletar_cliente(self):
         try:
             nif = int(input("Informe o NIF do cliente a ser deletado: "))
-            if nif == None:
-                raise ValueError("NIF não encontrado!")
             cliente_a_ser_deletado = Cliente.query.filter_by(NIF=nif).first()
+            if cliente_a_ser_deletado == None:
+                raise ValueError("NIF não encontrado!")
             session.delete(cliente_a_ser_deletado)
             session.commit()
             return cliente_a_ser_deletado
@@ -162,10 +178,12 @@ class TipoProduto(TimeStampedModel):
 
     def adicionar(self):
         try:
-            tipo_user_input = input("Informe o tipo de produto: ").capitalize().strip()
-            while 0 <= len(tipo_user_input) < 2:
+            tipo_user_input = input("Informe o tipo de produto: ").title().strip()
+            verifica_nome = regex_nome(tipo_user_input)
+            while verifica_nome == False:
                 print("O nome do tipo de produto deve conter pelo menos duas letras")
-                tipo_user_input = input("Informe o tipo de produto: ").capitalize().strip()
+                tipo_user_input = input("Informe o tipo de produto: ").title().strip()
+                verifica_nome = regex_nome(tipo_user_input)
             tipo_produto = TipoProduto(
                 tipo_produto=tipo_user_input
             )
@@ -185,9 +203,11 @@ class TipoProduto(TimeStampedModel):
             if tipo_produto_atualizar is None:
                 raise ValueError("Tipo de produto não encontrado")
             novo_tipo_produto = input("Informe o tipo de produto: ").capitalize().strip()
-            while 0 <= len(novo_tipo_produto) < 2:
+            verifica_nome = regex_nome(novo_tipo_produto)
+            while verifica_nome == False:
                 print("O nome do tipo de produto deve conter pelo menos duas letras")
                 novo_tipo_produto = input("Informe o tipo de produto: ").capitalize().strip()
+                verifica_nome = regex_nome(novo_tipo_produto)
             tipo_produto_atualizar.tipo_produto = novo_tipo_produto
             session.commit()
             return tipo_produto_atualizar
@@ -249,10 +269,12 @@ class MarcaProduto(TimeStampedModel):
 
     def adicionar(self):
         try:
-            nome_marca = input("Informe o nome da marca: ").capitalize().strip()
-            while 0 <= len(nome_marca) < 2:
+            nome_marca = input("Informe o nome da marca: ").title().strip()
+            verifica_nome = regex_nome(nome_marca)
+            while verifica_nome == False:
                 print("O nome da marca deve conter pelo menos duas letras!")
-                nome_marca = input("Informe o nome da marca: ").capitalize().strip()
+                nome_marca = input("Informe o nome da marca: ").title().strip()
+                verifica_nome = regex_nome(verifica_nome)
             marca = MarcaProduto(
                 nome_marca=nome_marca
             )
@@ -267,14 +289,16 @@ class MarcaProduto(TimeStampedModel):
 
     def atualizar_por_nome(self):
         try:
-            pesquisa = input("Informe a marca a ser atualizada: ").capitalize().strip()
+            pesquisa = input("Informe a marca a ser atualizada: ").title().strip()
             marca_atualizar = MarcaProduto.query.filter_by(nome_marca=pesquisa).first()
             if marca_atualizar is None:
                 raise ValueError("Marca não encontrada")
-            novo_nome_marca = input("Informe o novo nome da marca: ").capitalize().strip()
-            while 0 <= len(novo_nome_marca) < 2:
+            novo_nome_marca = input("Informe o novo nome da marca: ").title().strip()
+            verifica_nome = regex_nome(novo_nome_marca)
+            while verifica_nome == False:
                 print("O nome da marca deve conter pelo menos duas letras!")
-                novo_nome_marca = input("Informe o novo nome da marca: ").capitalize().strip()
+                novo_nome_marca = input("Informe o novo nome da marca: ").title().strip()
+                verifica_nome = regex_nome(novo_nome_marca)
             marca_atualizar.nome_marca = novo_nome_marca
             session.commit()
             return marca_atualizar
@@ -293,10 +317,12 @@ class MarcaProduto(TimeStampedModel):
             marca_atualizar = MarcaProduto.query.filter_by(id_marca_produto=pesquisa).first()
             if marca_atualizar == None:
                 raise ValueError("Marca não encontrada")
-            novo_nome_marca = input("Informe o novo nome da marca: ").capitalize().strip()
-            while 0 <= len(novo_nome_marca) < 2:
+            novo_nome_marca = input("Informe o novo nome da marca: ").title().strip()
+            verifica_nome = regex_nome(novo_nome_marca)
+            while verifica_nome == False:
                 print("O nome da marca deve conter pelo menos duas letras!")
-                novo_nome_marca = input("Informe o novo nome da marca: ").capitalize().strip()
+                novo_nome_marca = input("Informe o novo nome da marca: ").title().strip()
+                verifica_nome = regex_nome(novo_nome_marca)
             marca_atualizar.nome_marca = novo_nome_marca
             session.commit()
             return marca_atualizar
@@ -311,7 +337,7 @@ class MarcaProduto(TimeStampedModel):
 
     def deletar_por_nome(self):
         try:
-            pesquisa = input("Informe a marca a ser deletada: ").capitalize().strip()
+            pesquisa = input("Informe a marca a ser deletada: ").title().strip()
             item_a_deletar = MarcaProduto.query.filter_by(nome_marca=pesquisa).first()
             if item_a_deletar is None:
                 raise ValueError("Marca não encontrada")
@@ -368,10 +394,12 @@ class Produto(TimeStampedModel):
 
     def adicionar(self):
         try:
-            nome_produto = input("Informe o nome do produto: ").capitalize().strip()
-            while 0 <= len(nome_produto) < 2:
+            nome_produto = input("Informe o nome do produto: ").title().strip()
+            verifica_nome = regex_nome(nome_produto)
+            while verifica_nome == False:
                 print("O nome do produto deve conter pelo menos duas letras")
-                nome_produto = input("Informe o nome do produto: ").capitalize().strip()
+                nome_produto = input("Informe o nome do produto: ").title().strip()
+                verifica_nome = regex_nome(nome_produto)
             preco_acquisicao = float(input("Informe o preço de compra: "))
             while preco_acquisicao < 0:
                 print("O valor a ser inserido deve ser maior que 0")
@@ -408,7 +436,7 @@ class Produto(TimeStampedModel):
 
     def consultar_por_nome(self):
         try:
-            pesquisa = input("Informe o nome do produto a ser pesquisado: ").capitalize().strip()
+            pesquisa = input("Informe o nome do produto a ser pesquisado: ").title().strip()
             produto = Produto.query.filter_by(nome_produto=pesquisa).all()
             if produto is None:
                 raise ValueError("Produto não encontrado")
@@ -444,10 +472,12 @@ class Produto(TimeStampedModel):
             item_a_ser_atualizado = Produto.query.filter_by(id_produto=pesquisa).first()
             if item_a_ser_atualizado == None:
                 raise ValueError("Produto não encontrado")
-            nome_produto_atualizado = input("Informe o novo nome do produto: ").capitalize().strip()
-            while 0 <= nome_produto_atualizado < 2:
+            nome_produto_atualizado = input("Informe o novo nome do produto: ").title().strip()
+            verifica_nome = regex_nome(nome_produto_atualizado)
+            while verifica_nome == False:
                 print("O nome do produto deve conter pelo menos duas letras")
-                nome_produto_atualizado = input("Informe o novo nome do produto: ").capitalize().strip()
+                nome_produto_atualizado = input("Informe o novo nome do produto: ").title().strip()
+                verifica_nome = regex_nome(nome_produto_atualizado)
             item_a_ser_atualizado.nome_produto = nome_produto_atualizado
             session.commit()
             return item_a_ser_atualizado
@@ -498,20 +528,18 @@ cliente: id: {self.id_cliente} nome cliente {self.cliente.primeiro_nome} {self.c
 
     def adicionar(self):
         nif_cliente = int(input("Informe o NIF do cliente: "))
-        regex_nif = r"^([1-2]|5|6|8|9)\d{8}$"
-        if re.match(regex_nif, str(nif_cliente)):
-            cliente_registro = Cliente.query.filter_by(NIF=nif_cliente).first()
-            id_cliente = cliente_registro.id_cliente
-            id_produto = int(input("Informe o ID do produto: "))
-            while id_produto <= 0:
-                print("O nº de ID é sempre positivo. Insira um ID válido")
-                id_produto = int(input("Informe o ID do produto: "))
+        cliente_registro = Cliente.query.filter_by(NIF=nif_cliente).first()
+        if cliente_registro == None:
+            raise ValueError("NIF não encontrado")
+        id_cliente = cliente_registro.id_cliente
+        id_produto = int(input("Informe o ID do produto: "))
+        pesquisa_produto = Produto.query.filter_by(id_produto=id_produto).first()
+        if pesquisa_produto == None:
+            raise ValueError("Produto não encontrado")
+        preco_venda = float(input("Informe o preço da venda: "))
+        while preco_venda <= 0:
+            print("O nº de ID é sempre positivo. Insira um ID válido")
             preco_venda = float(input("Informe o preço da venda: "))
-            while preco_venda <= 0:
-                print("O nº de ID é sempre positivo. Insira um ID válido")
-                preco_venda = float(input("Informe o preço da venda: "))
-        else:
-            print("O NIF deve conter 9 digitos")
         try:
             venda = Venda(
                 id_cliente=id_cliente,
