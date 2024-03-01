@@ -169,7 +169,7 @@ class TipoProduto(TimeStampedModel):
     __tablename__ = "tipos_produto"
 
     id_tipo_produto = Column(Integer, primary_key=True, autoincrement=True)
-    tipo_produto = Column(String, nullable=False)
+    tipo_produto = Column(String(50), nullable=False)
 
     produto = Relationship("Produto", back_populates="tipo_produto", passive_deletes=True, passive_updates=True)
 

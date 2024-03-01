@@ -1,11 +1,17 @@
-import os
-
-from sqlalchemy import create_engine, event, Engine
+from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+import pymysql
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MYSQL_USER = 'root'
+MYSQL_PASSWORD = 'root'
+MYSQL_HOST = 'localhost'
+MYSQL_PORT = 3307
+MYSQL_DATABASE = 'gestao_bar'
 
-engine = create_engine(f"sqlite:///{BASE_DIR}/db", echo=True)
+mysql_connection_string = f'mysql+pymysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}'
+
+
+engine = create_engine(mysql_connection_string)
 
 session = scoped_session(
     sessionmaker(
@@ -14,10 +20,3 @@ session = scoped_session(
         bind=engine
     )
 )
-
-
-@event.listens_for(Engine, "connect")
-def set_sqlite_pragma(dbapi_connection, connection_record):
-    cursor = dbapi_connection.cursor()
-    cursor.execute("PRAGMA foreign_keys=ON")
-    cursor.close()
